@@ -1,0 +1,179 @@
+{
+  "@@locale": "uk",
+  "appTitle": "Тихе серце",
+  "welcomeMessage": "Ласкаво просимо!",
+  "welcomeSubMessage": "На вас чекає \"Тихе серце\"",
+  "tabTales": "Казки",
+  "tabGames": "Ігри",
+  "tabBreathe": "Дихання",
+  "tabMotions": "Руханки",
+  "settings": "Налаштування",
+  "english": "Англійська",
+  "ukrainian": "Українська",
+  "language": "Мова",
+  "themeMode": "Тема",
+  "systemTheme": "Системна тема",
+  "lightTheme": "Світла тема",
+  "darkTheme": "Темна тема",
+  "errorPlaySound": "Помилка відтворення звуку: {error}",
+  "@errorPlaySound": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Відтворення не вдалося"
+      }
+    }
+  },
+  "onboardingTapPrompt": "(Торкніться, щоб продовжити)",
+  "talesTitle": "Казки",
+  "tale1Title": "Капітан Сміхуха",
+  "tale1Author": "ШІ, Читає: Дударьок А",
+  "tale2Title": "Нове життя Хомика",
+  "tale2Author": "Бойко М, Читає: Дударьок А",
+  "tale3Title": "Мрійник",
+  "tale3Author": "Андрєєва О, Читає: Рзяніна Д",
+  "loading": "Завантаження...",
+  "motionSelectVideoHint": "Оберіть відео руханки",
+  "motionStartButton": "Почати",
+  "motionStopButton": "Зупинити",
+  "errorLoadingVideo": "Помилка завантаження відео: {error}",
+  "@errorLoadingVideo": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Помилка ініціалізації"
+      }
+    }
+  },
+  "motionVideoNameDog": "Собачка",
+  "motionVideoNameHeart": "Серденько",
+  "motionVideoNameUnknown": "Невідоме відео",
+  "unknownError": "Сталася невідома помилка",
+  "gameSortingGroceriesTitle": "Сортування\nпродуктів",
+  "gameMatchingSoundsTitle": "Знайди пару\nзвуків",
+  "gameColorPaletteTitle": "Кольорова\nгама",
+  "breatheSelectVideoHint": "Оберіть відео дихання",
+  "breatheStartButton": "Почати",
+  "breatheStopButton": "Зупинити",
+  "breatheVideoNameCube": "Куб",
+  "breatheVideoNameFingers": "Пальчики",
+  "breatheVideoNameUnknown": "Невідоме відео",
+  "backButtonTooltip": "Повернутися назад",
+  "scoreDisplay": "Рахунок: {score} / {total}",
+  "@scoreDisplay": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "5"
+      },
+      "total": {
+        "type": "int",
+        "example": "12"
+      }
+    }
+  },
+  "colorPaletteInstruction": "Знайдіть відповідні кольори:",
+  "gameWinTitle": "Перемога!",
+  "gameOverTitle": "Гра закінчена!",
+  "gameWinMessage": "Чудово!",
+  "gameTryAgainMessage": "Добре. Спробуй ще!",
+  "playAgainButton": "Грати знову",
+  "errorPlaySoundGame": "Помилка відтворення звуку: {error}",
+  "@errorPlaySoundGame": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Джерело не знайдено"
+      }
+    }
+  },
+  "gameOverPairsFoundAll": "Ви знайшли всі пари звуків!",
+  "gameOverPairsFoundSome": "Ви знайшли {pairsFound} пар.",
+  "@gameOverPairsFoundSome": {
+    "placeholders": {
+      "pairsFound": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "gameOverStatsTitle": "Статистика:",
+  "gameOverMoves": "Ходів: {moves}",
+  "@gameOverMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "25"
+      }
+    }
+  },
+  "gameOverTime": "Час: {minutes}:{seconds}",
+  "@gameOverTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "1"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "05"
+      }
+    }
+  },
+  "matchingGamePairsFound": "Знайдено пар: {found} / {total}",
+  "@matchingGamePairsFound": {
+    "placeholders": {
+      "found": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "8"
+      }
+    }
+  },
+  "matchingGameMoves": "Ходів: {moves}",
+  "@matchingGameMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingGameOverOutOfLives": "Ви використали всі спроби!",
+  "sortingGameOverScore": "Ви набрали {score} балів!",
+  "@sortingGameOverScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingLivesPrefix": "Спроби: ",
+  "sortingBasketFruit": "Фрукти",
+  "sortingBasketVegetable": "Овочі",
+  "sortingBasketBerry": "Ягоди",
+  "sortingScore": "Рахунок: {score}",
+  "@sortingScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "sortingIncorrectBasket": "Неправильна корзина!",
+  "itemNameCarrot": "Морква",
+  "itemNameBanana": "Банан",
+  "itemNameApple": "Яблуко",
+  "itemNameTomato": "Помідор",
+  "itemNameGrapes": "Виноград",
+  "itemNameCucumber": "Огірок",
+  "itemNameOrange": "Апельсин",
+  "itemNamePotato": "Картопля",
+  "itemNameStrawberry": "Полуниця",
+  "itemNameRaspberry": "Малина"
+}

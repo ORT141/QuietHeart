@@ -1,0 +1,179 @@
+{
+  "@@locale": "en",
+  "appTitle": "Quiet Heart",
+  "welcomeMessage": "Welcome!",
+  "welcomeSubMessage": "Quiet Heart awaits you",
+  "tabTales": "Tales",
+  "tabGames": "Games",
+  "tabBreathe": "Breathe",
+  "tabMotions": "Motions",
+  "settings": "Settings",
+  "english": "English",
+  "ukrainian": "Ukrainian",
+  "language": "Language",
+  "themeMode": "Theme",
+  "systemTheme": "System Theme",
+  "lightTheme": "Light Theme",
+  "darkTheme": "Dark Theme",
+  "errorPlaySound": "Error playing sound: {error}",
+  "@errorPlaySound": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Playback failed"
+      }
+    }
+  },
+  "onboardingTapPrompt": "(Tap to continue)",
+  "talesTitle": "Tales",
+  "tale1Title": "Captain Laughter",
+  "tale1Author": "AI, Reads: A. Dudaryok",
+  "tale2Title": "Hamster's New Life",
+  "tale2Author": "M. Boyko, Reads: A. Dudaryok",
+  "tale3Title": "The Dreamer",
+  "tale3Author": "O. Andreeva, Reads: D. Rzyanina",
+  "loading": "Loading...",
+  "motionSelectVideoHint": "Select a motion video",
+  "motionStartButton": "Start",
+  "motionStopButton": "Stop",
+  "errorLoadingVideo": "Error loading video: {error}",
+  "@errorLoadingVideo": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Initialization failed"
+      }
+    }
+  },
+  "motionVideoNameDog": "Doggy",
+  "motionVideoNameHeart": "Heart",
+  "motionVideoNameUnknown": "Unknown Video",
+  "unknownError": "An unknown error occurred",
+  "gameSortingGroceriesTitle": "Sorting\nGroceries",
+  "gameMatchingSoundsTitle": "Match\nSounds",
+  "gameColorPaletteTitle": "Color\nPalette",
+  "breatheSelectVideoHint": "Select breathing video",
+  "breatheStartButton": "Start",
+  "breatheStopButton": "Stop",
+  "breatheVideoNameCube": "Cube",
+  "breatheVideoNameFingers": "Fingers",
+  "breatheVideoNameUnknown": "Unknown Video",
+  "backButtonTooltip": "Go back",
+  "scoreDisplay": "Score: {score} / {total}",
+  "@scoreDisplay": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "5"
+      },
+      "total": {
+        "type": "int",
+        "example": "12"
+      }
+    }
+  },
+  "colorPaletteInstruction": "Find the matching colors:",
+  "gameWinTitle": "Victory!",
+  "gameOverTitle": "Game Over!",
+  "gameWinMessage": "Excellent!",
+  "gameTryAgainMessage": "Good try. Try again!",
+  "playAgainButton": "Play Again",
+  "errorPlaySoundGame": "Error playing sound: {error}",
+  "@errorPlaySoundGame": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "Source not found"
+      }
+    }
+  },
+  "gameOverPairsFoundAll": "You found all the sound pairs!",
+  "gameOverPairsFoundSome": "You found {pairsFound} pairs.",
+  "@gameOverPairsFoundSome": {
+    "placeholders": {
+      "pairsFound": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "gameOverStatsTitle": "Statistics:",
+  "gameOverMoves": "Moves: {moves}",
+  "@gameOverMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "25"
+      }
+    }
+  },
+  "gameOverTime": "Time: {minutes}:{seconds}",
+  "@gameOverTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "1"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "05"
+      }
+    }
+  },
+  "matchingGamePairsFound": "Pairs Found: {found} / {total}",
+  "@matchingGamePairsFound": {
+    "placeholders": {
+      "found": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "8"
+      }
+    }
+  },
+  "matchingGameMoves": "Moves: {moves}",
+  "@matchingGameMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingGameOverOutOfLives": "You ran out of lives!",
+  "sortingGameOverScore": "You scored {score} points!",
+  "@sortingGameOverScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingLivesPrefix": "Lives: ",
+  "sortingBasketFruit": "Fruits",
+  "sortingBasketVegetable": "Vegetables",
+  "sortingBasketBerry": "Berries",
+  "sortingScore": "Score: {score}",
+  "@sortingScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "sortingIncorrectBasket": "Wrong basket!",
+  "itemNameCarrot": "Carrot",
+  "itemNameBanana": "Banana",
+  "itemNameApple": "Apple",
+  "itemNameTomato": "Tomato",
+  "itemNameGrapes": "Grapes",
+  "itemNameCucumber": "Cucumber",
+  "itemNameOrange": "Orange",
+  "itemNamePotato": "Potato",
+  "itemNameStrawberry": "Strawberry",
+  "itemNameRaspberry": "Raspberry"
+}

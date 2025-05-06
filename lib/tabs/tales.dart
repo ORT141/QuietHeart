@@ -209,8 +209,14 @@ class TalesWidgetState extends State<TalesWidget>
       await audioPlayer.pause();
     } else {
       try {
-        await audioPlayer
-            .play(AssetSource('tales/${tale.originalIndex + 1}.mp3'));
+        final locale = Localizations.localeOf(context).languageCode;
+        String audioPath = 'tales/${tale.originalIndex + 1}';
+
+        if (locale == 'en') {
+          audioPath += '_en';
+        }
+
+        await audioPlayer.play(AssetSource('$audioPath.mp3'));
       } catch (e) {
         print("Error playing audio: $e");
         if (mounted) {

@@ -1,0 +1,179 @@
+{
+  "@@locale": "he",
+  "appTitle": "לב שקט",
+  "welcomeMessage": "ברוכים הבאים!",
+  "welcomeSubMessage": "מחכה לכם \"לב שקט\"",
+  "tabTales": "סיפורים",
+  "tabGames": "משחקים",
+  "tabBreathe": "נשימה",
+  "tabMotions": "תנועה",
+  "settings": "הגדרות",
+  "english": "אנגלית",
+  "ukrainian": "אוקראינית",
+  "language": "שפה",
+  "themeMode": "ערכת נושא",
+  "systemTheme": "ערכת נושא מערכת",
+  "lightTheme": "ערכת נושא בהירה",
+  "darkTheme": "ערכת נושא כהה",
+  "errorPlaySound": "שגיאה בניגון שמע: {error}",
+  "@errorPlaySound": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "השמעה נכשלה"
+      }
+    }
+  },
+  "onboardingTapPrompt": "(געו להמשך)",
+  "talesTitle": "סיפורים",
+  "tale1Title": "קפטן צחוקון",
+  "tale1Author": "בינה מלאכותית, קריאה: דודאריוק א.",
+  "tale2Title": "חיים חדשים להמיק",
+  "tale2Author": "בויקו מ, קריאה: דודאריוק א.",
+  "tale3Title": "החולם",
+  "tale3Author": "אנדרייבה א, קריאה: רזיאנינה ד.",
+  "loading": "טוען...",
+  "motionSelectVideoHint": "בחרו סרטון תנועה",
+  "motionStartButton": "התחל",
+  "motionStopButton": "עצור",
+  "errorLoadingVideo": "שגיאה בטעינת וידאו: {error}",
+  "@errorLoadingVideo": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "שגיאת אתחול"
+      }
+    }
+  },
+  "motionVideoNameDog": "כלבלב",
+  "motionVideoNameHeart": "לב קטן",
+  "motionVideoNameUnknown": "סרטון לא ידוע",
+  "unknownError": "אירעה שגיאה לא ידועה",
+  "gameSortingGroceriesTitle": "מיון\nמוצרים",
+  "gameMatchingSoundsTitle": "מצאו זוג\nצלילים",
+  "gameColorPaletteTitle": "פלטת\nצבעים",
+  "breatheSelectVideoHint": "בחרו סרטון נשימה",
+  "breatheStartButton": "התחל",
+  "breatheStopButton": "עצור",
+  "breatheVideoNameCube": "קובייה",
+  "breatheVideoNameFingers": "אצבעות",
+  "breatheVideoNameUnknown": "סרטון לא ידוע",
+  "backButtonTooltip": "חזור",
+  "scoreDisplay": "ניקוד: {score} / {total}",
+  "@scoreDisplay": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "5"
+      },
+      "total": {
+        "type": "int",
+        "example": "12"
+      }
+    }
+  },
+  "colorPaletteInstruction": "מצאו את הצבעים התואמים:",
+  "gameWinTitle": "ניצחון!",
+  "gameOverTitle": "המשחק הסתיים!",
+  "gameWinMessage": "מצוין!",
+  "gameTryAgainMessage": "טוב. נסו שוב!",
+  "playAgainButton": "שחקו שוב",
+  "errorPlaySoundGame": "שגיאה בניגון שמע: {error}",
+  "@errorPlaySoundGame": {
+    "placeholders": {
+      "error": {
+        "type": "String",
+        "example": "המקור לא נמצא"
+      }
+    }
+  },
+  "gameOverPairsFoundAll": "מצאתם את כל זוגות הצלילים!",
+  "gameOverPairsFoundSome": "מצאתם {pairsFound} זוגות.",
+  "@gameOverPairsFoundSome": {
+    "placeholders": {
+      "pairsFound": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "gameOverStatsTitle": "סטטיסטיקה:",
+  "gameOverMoves": "מהלכים: {moves}",
+  "@gameOverMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "25"
+      }
+    }
+  },
+  "gameOverTime": "זמן: {minutes}:{seconds}",
+  "@gameOverTime": {
+    "placeholders": {
+      "minutes": {
+        "type": "int",
+        "example": "1"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "05"
+      }
+    }
+  },
+  "matchingGamePairsFound": "זוגות שנמצאו: {found} / {total}",
+  "@matchingGamePairsFound": {
+    "placeholders": {
+      "found": {
+        "type": "int",
+        "example": "3"
+      },
+      "total": {
+        "type": "int",
+        "example": "8"
+      }
+    }
+  },
+  "matchingGameMoves": "מהלכים: {moves}",
+  "@matchingGameMoves": {
+    "placeholders": {
+      "moves": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingGameOverOutOfLives": "נגמרו לכם הניסיונות!",
+  "sortingGameOverScore": "צברתם {score} נקודות!",
+  "@sortingGameOverScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "15"
+      }
+    }
+  },
+  "sortingLivesPrefix": "ניסיונות: ",
+  "sortingBasketFruit": "פירות",
+  "sortingBasketVegetable": "ירקות",
+  "sortingBasketBerry": "פירות יער",
+  "sortingScore": "ניקוד: {score}",
+  "@sortingScore": {
+    "placeholders": {
+      "score": {
+        "type": "int",
+        "example": "10"
+      }
+    }
+  },
+  "sortingIncorrectBasket": "סל לא נכון!",
+  "itemNameCarrot": "גזר",
+  "itemNameBanana": "בננה",
+  "itemNameApple": "תפוח",
+  "itemNameTomato": "עגבנייה",
+  "itemNameGrapes": "ענבים",
+  "itemNameCucumber": "מלפפון",
+  "itemNameOrange": "תפוז",
+  "itemNamePotato": "תפוח אדמה",
+  "itemNameStrawberry": "תות שדה",
+  "itemNameRaspberry": "פטל"
+}

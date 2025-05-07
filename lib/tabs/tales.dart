@@ -216,9 +216,12 @@ class TalesWidgetState extends State<TalesWidget>
           audioPath += '_en';
         }
 
+        if (locale == "he") {
+          audioPath += '_he';
+        }
+
         await audioPlayer.play(AssetSource('$audioPath.mp3'));
       } catch (e) {
-        print("Error playing audio: $e");
         if (mounted) {
           final l10n = AppLocalizations.of(context)!;
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(

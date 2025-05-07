@@ -31,7 +31,7 @@ class MotionsWidgetState extends State<MotionsWidget>
   ChewieController? chewieController;
   Future<void>? initializeVideoPlayerFuture;
 
-  final List<String> _videoAssets = [
+  final List<String> _videoAssetsBase = [
     'assets/videos/dog.mp4',
     'assets/videos/heart.mp4'
   ];
@@ -99,6 +99,29 @@ class MotionsWidgetState extends State<MotionsWidget>
     }
   }
 
+  String _getLanguageSpecificAssetPath(
+      BuildContext context, String baseAssetPath) {
+    final locale = Localizations.localeOf(context).languageCode;
+    String suffix = '';
+    if (locale == 'en') {
+      suffix = '_en';
+    } else if (locale == 'he') {
+      suffix = '_he';
+    }
+
+    if (suffix.isEmpty) {
+      return baseAssetPath;
+    }
+
+    int dotIndex = baseAssetPath.lastIndexOf('.');
+    if (dotIndex == -1) {
+      return baseAssetPath;
+    }
+    String name = baseAssetPath.substring(0, dotIndex);
+    String extension = baseAssetPath.substring(dotIndex);
+    return '$name$suffix$extension';
+  }
+
   void _loadVideo(int index) {
     final l10n = AppLocalizations.of(context)!;
     if (controller != null) {
@@ -108,7 +131,11 @@ class MotionsWidgetState extends State<MotionsWidget>
       chewieController!.dispose();
     }
 
-    controller = VideoPlayerController.asset(_videoAssets[index]);
+    final String baseAssetPath = _videoAssetsBase[index];
+    final String localizedAssetPath =
+        _getLanguageSpecificAssetPath(context, baseAssetPath);
+
+    controller = VideoPlayerController.asset(localizedAssetPath);
 
     initializeVideoPlayerFuture = controller!.initialize().then((_) {
       if (!mounted) return;
@@ -214,10 +241,11 @@ class MotionsWidgetState extends State<MotionsWidget>
                   ),
                   SizedBox(height: verticalPadding),
                   if (!isPlaying) ...[
-                    if (_videoAssets.length <= 3) ...[
+                    if (_videoAssetsBase.length <= 3) ...[
                       Center(
                         child: SegmentedButton<int>(
-                          segments: _videoAssets.asMap().entries.map((entry) {
+                          segments:
+                              _videoAssetsBase.asMap().entries.map((entry) {
                             return ButtonSegment<int>(
                               value: entry.key,
                               label:
@@ -265,7 +293,8 @@ class MotionsWidgetState extends State<MotionsWidget>
                             menuItemStyleData: const MenuItemStyleData(
                               padding: EdgeInsets.symmetric(horizontal: 16),
                             ),
-                            items: _videoAssets.asMap().entries.map((entry) {
+                            items:
+                                _videoAssetsBase.asMap().entries.map((entry) {
                               return DropdownMenuItem<int>(
                                 value: entry.key,
                                 child: Semantics(

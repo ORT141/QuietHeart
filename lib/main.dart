@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GoogleFonts.config.allowRuntimeFetching = false;
     final localeProvider = Provider.of<LocaleProvider>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -89,6 +90,12 @@ class MyApp extends StatelessWidget {
       themeMode: themeProvider.themeMode,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),
+      builder: (context, child) {
+        return Directionality(
+          textDirection: TextDirection.ltr,
+          child: child!,
+        );
+      },
     );
   }
 }
@@ -487,6 +494,8 @@ class HomePageState extends State<HomePage>
                     currentLocale,
                     localeProvider,
                   ),
+                  _buildLanguageOption(
+                      context, "Hebrew", 'he', currentLocale, localeProvider),
                   Divider(indent: 24.0, endIndent: 24.0, thickness: 1),
                   _buildSectionTitle(context, l10n.themeMode),
                   _buildThemeOption(

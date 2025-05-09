@@ -56,7 +56,7 @@
   "breatheStartButton": "התחל",
   "breatheStopButton": "עצור",
   "breatheVideoNameCube": "קובייה",
-  "breatheVideoNameFingers": "אצבעות",
+  "breatheVideoNameHand": "אצבעות",
   "breatheVideoNameUnknown": "סרטון לא ידוע",
   "backButtonTooltip": "חזור",
   "scoreDisplay": "ניקוד: {score} / {total}",

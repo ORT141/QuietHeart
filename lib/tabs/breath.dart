@@ -44,13 +44,13 @@ class BreatheWidgetState extends State<BreatheWidget>
   final int _exhaleHoldDuration = 3;
 
   final List<String> _videoAssets = [
-    'assets/videos/1.mp4',
-    'assets/videos/2.mp4',
+    'assets/videos/cube.mp4',
+    'assets/videos/hand.mp4',
   ];
 
   final Map<int, String> _videoNameKeys = {
     0: 'breatheVideoNameCube',
-    1: 'breatheVideoNameFingers',
+    1: 'breatheVideoNameHand',
   };
 
   final Map<int, Icon> _videoIcons = {
@@ -125,8 +125,8 @@ class BreatheWidgetState extends State<BreatheWidget>
     switch (key) {
       case 'breatheVideoNameCube':
         return l10n.breatheVideoNameCube;
-      case 'breatheVideoNameFingers':
-        return l10n.breatheVideoNameFingers;
+      case 'breatheVideoNameHand':
+        return l10n.breatheVideoNameHand;
       default:
         return l10n.breatheVideoNameUnknown;
     }

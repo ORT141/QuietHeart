@@ -56,7 +56,7 @@
   "breatheStartButton": "Почати",
   "breatheStopButton": "Зупинити",
   "breatheVideoNameCube": "Куб",
-  "breatheVideoNameFingers": "Пальчики",
+  "breatheVideoNameHand": "Пальчики",
   "breatheVideoNameUnknown": "Невідоме відео",
   "backButtonTooltip": "Повернутися назад",
   "scoreDisplay": "Рахунок: {score} / {total}",

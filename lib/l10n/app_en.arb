@@ -56,7 +56,7 @@
   "breatheStartButton": "Start",
   "breatheStopButton": "Stop",
   "breatheVideoNameCube": "Cube",
-  "breatheVideoNameFingers": "Fingers",
+  "breatheVideoNameHand": "Fingers",
   "breatheVideoNameUnknown": "Unknown Video",
   "backButtonTooltip": "Go back",
   "scoreDisplay": "Score: {score} / {total}",

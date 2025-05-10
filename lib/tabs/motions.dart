@@ -211,9 +211,11 @@ class MotionsWidgetState extends State<MotionsWidget>
 
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
-        double titleFontSize = constraints.maxWidth > 600 ? 36.0 : 28.0;
-        double buttonFontSize = constraints.maxWidth > 600 ? 18.0 : 16.0;
-        double verticalPadding = constraints.maxWidth > 600 ? 30.0 : 20.0;
+        bool isLargeScreen = constraints.maxWidth > 600;
+        double imageWidth = isLargeScreen ? 300.0 : 250.0;
+        double titleFontSize = isLargeScreen ? 36.0 : 28.0;
+        double buttonFontSize = isLargeScreen ? 18.0 : 16.0;
+        double verticalPadding = isLargeScreen ? 30.0 : 20.0;
         double dropdownWidth =
             constraints.maxWidth > 400 ? 400 : constraints.maxWidth * 0.8;
 
@@ -226,6 +228,16 @@ class MotionsWidgetState extends State<MotionsWidget>
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   SizedBox(height: verticalPadding),
+                  SizedBox(
+                    width: imageWidth,
+                    height: imageWidth,
+                    child: Image.asset(
+                      theme.brightness == Brightness.dark
+                          ? 'assets/images/motions_dark.png'
+                          : 'assets/images/motions_light.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
                   SlideTransition(
                     position: _titleSlideAnimation,
                     child: Center(

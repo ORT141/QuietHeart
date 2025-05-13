@@ -41,8 +41,8 @@ jobs:
             - name: Download APK artifact
               uses: actions/download-artifact@v4
               with:
-                  name: android-apk
-                  path: apk
+                  name: apk
+                  pattern: android-apk*
 
             - name: Release
               id: create_release

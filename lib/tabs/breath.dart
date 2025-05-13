@@ -44,12 +44,12 @@ class BreatheWidgetState extends State<BreatheWidget>
   final int _exhaleHoldDuration = 3;
 
   final List<String> _videoAssets = [
-    'assets/videos/cube.mp4',
+    'assets/videos/square.mp4',
     'assets/videos/hand.mp4',
   ];
 
   final Map<int, String> _videoNameKeys = {
-    0: 'breatheVideoNameCube',
+    0: 'breatheVideoNameSquare',
     1: 'breatheVideoNameHand',
   };
 
@@ -123,8 +123,8 @@ class BreatheWidgetState extends State<BreatheWidget>
   String getLocalizedVideoName(AppLocalizations l10n, int index) {
     final key = _videoNameKeys[index];
     switch (key) {
-      case 'breatheVideoNameCube':
-        return l10n.breatheVideoNameCube;
+      case 'breatheVideoNameSquare':
+        return l10n.breatheVideoNameSquare;
       case 'breatheVideoNameHand':
         return l10n.breatheVideoNameHand;
       default:

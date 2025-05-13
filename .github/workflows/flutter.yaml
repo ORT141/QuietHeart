@@ -1,56 +1,62 @@
 name: Flutter CI
 
 on:
-    push:
-        branches:
-            - main
-    pull_request:
-        branches:
-            - main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-            - name: Set up Flutter
-              uses: subosito/flutter-action@v2
-              with:
-                  channel: stable
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
 
-            - name: Install dependencies
-              run: flutter pub get
+      - name: Install dependencies
+        run: flutter pub get
 
-            - name: Build APK
-              run: flutter build apk --release
+      - name: Build APK
+        run: flutter build apk --release
 
-            - name: Upload artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: android-apk
-                  path: build/app/outputs/flutter-apk/app-release.apk
+      - name: Upload artifact (APK file)
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk-file
+          path: build/app/outputs/flutter-apk/app-release.apk
 
-    release:
-        needs: build
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        runs-on: ubuntu-latest
-        steps:
-            - name: Download APK artifact
-              uses: actions/download-artifact@v4
-              with:
-                  name: apk
-                  pattern: android-apk*
+  release:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-            - name: Release
-              id: create_release
-              uses: ncipollo/release-action@v1
-              with:
-                  body: |
-                      Automatic build from commit ${{ needs.build.outputs.ARTIFACT_HASH }}
-                  name: 'Nightly Build ${{ needs.build.outputs.ARTIFACT_HASH }}'
-                  tag: 'prerelease-${{ github.run_number }}'
-                  prerelease: true
-                  artifacts: apk/app-release.apk
+    steps:
+      - name: Download APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: android-apk-file
+          path: downloaded_apk/
+
+      - name: List files in downloaded_apk
+        run: ls -R downloaded_apk/
+
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "downloaded_apk/app-release.apk"
+          body: |
+            Automatic build from commit ${{ github.sha }}
+          name: 'Nightly Build'
+          tag: 'nightly-${{ github.run_number }}'
+          prerelease: true

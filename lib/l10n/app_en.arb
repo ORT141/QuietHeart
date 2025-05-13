@@ -55,7 +55,7 @@
   "breatheSelectVideoHint": "Select breathing video",
   "breatheStartButton": "Start",
   "breatheStopButton": "Stop",
-  "breatheVideoNameCube": "Cube",
+  "breatheVideoNameSquare": "Square",
   "breatheVideoNameHand": "Fingers",
   "breatheVideoNameUnknown": "Unknown Video",
   "backButtonTooltip": "Go back",

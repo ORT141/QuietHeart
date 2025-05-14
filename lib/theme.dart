@@ -5,6 +5,27 @@ class MaterialTheme {
 
   const MaterialTheme(this.textTheme);
 
+  static TextTheme createShantellSansTextTheme() {
+    const fontFamily = 'ShantellSans';
+    return TextTheme(
+      displayLarge: TextStyle(fontFamily: fontFamily),
+      displayMedium: TextStyle(fontFamily: fontFamily),
+      displaySmall: TextStyle(fontFamily: fontFamily),
+      headlineLarge: TextStyle(fontFamily: fontFamily),
+      headlineMedium: TextStyle(fontFamily: fontFamily),
+      headlineSmall: TextStyle(fontFamily: fontFamily),
+      titleLarge: TextStyle(fontFamily: fontFamily),
+      titleMedium: TextStyle(fontFamily: fontFamily),
+      titleSmall: TextStyle(fontFamily: fontFamily),
+      bodyLarge: TextStyle(fontFamily: fontFamily),
+      bodyMedium: TextStyle(fontFamily: fontFamily),
+      bodySmall: TextStyle(fontFamily: fontFamily),
+      labelLarge: TextStyle(fontFamily: fontFamily),
+      labelMedium: TextStyle(fontFamily: fontFamily),
+      labelSmall: TextStyle(fontFamily: fontFamily),
+    );
+  }
+
   static ColorScheme lightScheme() {
     return const ColorScheme(
       brightness: Brightness.light,
@@ -343,6 +364,7 @@ class MaterialTheme {
           bodyColor: colorScheme.onSurface,
           displayColor: colorScheme.onSurface,
         ),
+        fontFamily: 'ShantellSans',
         scaffoldBackgroundColor: colorScheme.surface,
         canvasColor: colorScheme.surface,
       );

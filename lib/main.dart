@@ -6,7 +6,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:quietheart/tabs/breath.dart';
 import 'package:quietheart/tabs/games.dart';
@@ -71,7 +70,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GoogleFonts.config.allowRuntimeFetching = false;
     final localeProvider = Provider.of<LocaleProvider>(context);
     final themeProvider = Provider.of<ThemeProvider>(context);
 
@@ -85,8 +83,9 @@ class MyApp extends StatelessWidget {
       ],
       supportedLocales: AppLocalizations.supportedLocales,
       locale: localeProvider.locale,
-      theme: MaterialTheme(GoogleFonts.shantellSansTextTheme()).light(),
-      darkTheme: MaterialTheme(GoogleFonts.shantellSansTextTheme()).dark(),
+      theme: MaterialTheme(MaterialTheme.createShantellSansTextTheme()).light(),
+      darkTheme:
+          MaterialTheme(MaterialTheme.createShantellSansTextTheme()).dark(),
       themeMode: themeProvider.themeMode,
       debugShowCheckedModeBanner: false,
       home: const HomePage(),

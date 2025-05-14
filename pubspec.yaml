@@ -49,4 +49,38 @@ flutter:
         - assets/videos/
         - assets/sounds/
 
+    fonts:
+      - family: ShantellSans
+        fonts:
+          - asset: assets/fonts/ShantellSans-Regular.ttf
+            weight: 400
+          - asset: assets/fonts/ShantellSans-Italic.ttf
+            style: italic
+            weight: 400
+          - asset: assets/fonts/ShantellSans-Light.ttf
+            weight: 300
+          - asset: assets/fonts/ShantellSans-LightItalic.ttf
+            style: italic
+            weight: 300
+          - asset: assets/fonts/ShantellSans-Medium.ttf
+            weight: 500
+          - asset: assets/fonts/ShantellSans-MediumItalic.ttf
+            style: italic
+            weight: 500
+          - asset: assets/fonts/ShantellSans-SemiBold.ttf
+            weight: 600
+          - asset: assets/fonts/ShantellSans-SemiBoldItalic.ttf
+            style: italic
+            weight: 600
+          - asset: assets/fonts/ShantellSans-Bold.ttf
+            weight: 700
+          - asset: assets/fonts/ShantellSans-BoldItalic.ttf
+            style: italic
+            weight: 700
+          - asset: assets/fonts/ShantellSans-ExtraBold.ttf
+            weight: 800
+          - asset: assets/fonts/ShantellSans-ExtraBoldItalic.ttf
+            style: italic
+            weight: 800
+
     uses-material-design: true

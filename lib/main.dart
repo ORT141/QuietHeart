@@ -440,7 +440,7 @@ class HomePageState extends State<HomePage>
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.fromLTRB(16.0, 42.0, 16.0, 32.0),
+              padding: EdgeInsets.fromLTRB(16.0, 52.0, 16.0, 32.0),
               child: Column(
                 children: [
                   Container(
@@ -476,7 +476,8 @@ class HomePageState extends State<HomePage>
             Divider(indent: 24.0, endIndent: 24.0, thickness: 1),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.symmetric(vertical: 8),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                 children: [
                   _buildSectionTitle(context, l10n.language),
                   _buildLanguageOption(
@@ -561,7 +562,7 @@ class HomePageState extends State<HomePage>
     final isSelected = currentLocale.languageCode == languageCode;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
       child: Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),
@@ -595,7 +596,7 @@ class HomePageState extends State<HomePage>
     final isSelected = themeProvider.themeMode == mode;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 3.0),
       child: Material(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(10),

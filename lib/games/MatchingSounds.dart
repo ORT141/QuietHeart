@@ -411,17 +411,20 @@ class MatchingSoundsGameState extends State<MatchingSoundsGame>
                   ),
                 ),
                 Text(
-                  'Знайдено пар: $pairsFound / ${gameSounds.length ~/ 2}',
+                  l10n.matchingGamePairsFound(
+                      pairsFound, gameSounds.length ~/ 2),
                   style: TextStyle(
                     fontSize: 18,
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
                 ),
-                Text('Ходів: $moves',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Theme.of(context).colorScheme.onSurfaceVariant,
-                    )),
+                Text(
+                  l10n.matchingGameMoves(moves),
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                ),
               ]),
             ),
           );

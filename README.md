@@ -112,14 +112,11 @@ flutter run
 <details>
 <summary>Click to expand</summary>
 
-<img src="screenshots/splash.png" height="700">
 <img src="screenshots/tales.png" height="700">
-<img src="screenshots/drawer.png" height="700">
+<img src="screenshots/tales_playing.png" height="700">
 <img src="screenshots/games.png" height="700">
-<img src="screenshots/games_colors.png" height="700">
-<img src="screenshots/games_sort.png" height="700">
-<img src="screenshots/games_sounds.png" height="700">
-<img src="screenshots/breathe.png" height="700">
+<img src="screenshots/sorting_game.png" height="700">
+<img src="screenshots/breath.png" height="700">
 <img src="screenshots/motions.png" height="700">
 
 </details>

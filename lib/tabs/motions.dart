@@ -7,6 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:video_player/video_player.dart';
 
+import '../utils.dart';
+
 class MotionsWidget extends StatefulWidget {
   const MotionsWidget({super.key});
 
@@ -99,29 +101,6 @@ class MotionsWidgetState extends State<MotionsWidget>
     }
   }
 
-  String _getLanguageSpecificAssetPath(
-      BuildContext context, String baseAssetPath) {
-    final locale = Localizations.localeOf(context).languageCode;
-    String suffix = '';
-    if (locale == 'en') {
-      suffix = '_en';
-    } else if (locale == 'he') {
-      suffix = '_he';
-    }
-
-    if (suffix.isEmpty) {
-      return baseAssetPath;
-    }
-
-    int dotIndex = baseAssetPath.lastIndexOf('.');
-    if (dotIndex == -1) {
-      return baseAssetPath;
-    }
-    String name = baseAssetPath.substring(0, dotIndex);
-    String extension = baseAssetPath.substring(dotIndex);
-    return '$name$suffix$extension';
-  }
-
   void _loadVideo(int index) {
     final l10n = AppLocalizations.of(context)!;
     if (controller != null) {
@@ -133,7 +112,7 @@ class MotionsWidgetState extends State<MotionsWidget>
 
     final String baseAssetPath = _videoAssetsBase[index];
     final String localizedAssetPath =
-        _getLanguageSpecificAssetPath(context, baseAssetPath);
+        getLanguageSpecificAssetPath(context, baseAssetPath);
 
     controller = VideoPlayerController.asset(localizedAssetPath);
 

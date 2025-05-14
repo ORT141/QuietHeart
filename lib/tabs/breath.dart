@@ -7,6 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:video_player/video_player.dart';
 
+import '../utils.dart';
+
 class BreatheWidget extends StatefulWidget {
   const BreatheWidget({super.key});
 
@@ -43,7 +45,7 @@ class BreatheWidgetState extends State<BreatheWidget>
   final int _inhaleHoldDuration = 3;
   final int _exhaleHoldDuration = 3;
 
-  final List<String> _videoAssets = [
+  final List<String> _videoAssetsBase = [
     'assets/videos/square.mp4',
     'assets/videos/hand.mp4',
   ];
@@ -176,7 +178,11 @@ class BreatheWidgetState extends State<BreatheWidget>
       initializeVideoPlayerFuture = null;
     });
 
-    controller = VideoPlayerController.asset(_videoAssets[index]);
+    final String baseAssetPath = _videoAssetsBase[index];
+    final String localizedAssetPath =
+        getLanguageSpecificAssetPath(context, baseAssetPath);
+
+    controller = VideoPlayerController.asset(localizedAssetPath);
 
     initializeVideoPlayerFuture = controller!.initialize().then((_) {
       if (!mounted) return;
@@ -356,11 +362,13 @@ class BreatheWidgetState extends State<BreatheWidget>
                       padding: const EdgeInsets.all(16),
                       child: Column(
                         children: [
-                          if (_videoAssets.length <= 3) ...[
+                          if (_videoAssetsBase.length <= 3) ...[
                             Center(
                               child: SegmentedButton<int>(
-                                segments:
-                                    _videoAssets.asMap().entries.map((entry) {
+                                segments: _videoAssetsBase
+                                    .asMap()
+                                    .entries
+                                    .map((entry) {
                                   return ButtonSegment<int>(
                                     value: entry.key,
                                     label: Text(
@@ -412,8 +420,10 @@ class BreatheWidgetState extends State<BreatheWidget>
                                 menuItemStyleData: const MenuItemStyleData(
                                   padding: EdgeInsets.symmetric(horizontal: 16),
                                 ),
-                                items:
-                                    _videoAssets.asMap().entries.map((entry) {
+                                items: _videoAssetsBase
+                                    .asMap()
+                                    .entries
+                                    .map((entry) {
                                   return DropdownMenuItem<int>(
                                     value: entry.key,
                                     child: Semantics(

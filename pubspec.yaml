@@ -3,7 +3,7 @@ description: 'App for children to stay calm and relaxed. It contains a collectio
 
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 1.0.1
 
 environment:
     sdk: ^3.6.1

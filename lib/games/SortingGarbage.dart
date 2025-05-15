@@ -410,7 +410,7 @@ class SortingGarbageGameState extends State<SortingGarbageGame>
               left: 10,
               top: binTopPosition,
               width: binWidth,
-              color: Colors.deepOrangeAccent),
+              color: Colors.deepOrangeAccent.shade700),
           _buildTrashBin(
               key: paperBinKey,
               type: 'paper',

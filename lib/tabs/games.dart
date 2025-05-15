@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../games/ColorPallete.dart';
 import '../games/MatchingSounds.dart';
-import '../games/SortingGroceries.dart';
+import '../games/SortingGarbage.dart';
 
 class GamesWidget extends StatefulWidget {
   const GamesWidget({super.key});
@@ -76,9 +76,9 @@ class _GamesWidgetState extends State<GamesWidget> {
                 children: [
                   _buildGameButton(
                     context,
-                    l10n.gameSortingGroceriesTitle,
-                    Icons.shopping_cart_outlined,
-                    const SortingGroceriesGame(),
+                    l10n.gameSortingGarbageTitle,
+                    Icons.recycling_outlined,
+                    const SortingGarbageGame(),
                     0,
                     isDark,
                   ),

@@ -3,14 +3,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SortingGroceriesGame extends StatefulWidget {
-  const SortingGroceriesGame({super.key});
+class SortingGarbageGame extends StatefulWidget {
+  const SortingGarbageGame({super.key});
 
   @override
-  SortingGroceriesGameState createState() => SortingGroceriesGameState();
+  SortingGarbageGameState createState() => SortingGarbageGameState();
 }
 
-class SortingGroceriesGameState extends State<SortingGroceriesGame>
+class SortingGarbageGameState extends State<SortingGarbageGame>
     with TickerProviderStateMixin {
   int score = 0;
   int lives = 3;
@@ -29,62 +29,59 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
 
   final List<Map<String, dynamic>> allItems = [
     {
-      'nameKey': 'itemNameCarrot',
-      'type': 'vegetable',
-      'image': 'assets/images/products/carrot.png'
+      'nameKey': 'itemNamePlasticBottle',
+      'type': 'plastic',
+      'image': 'assets/images/products/plastic_bottle.png'
+    },
+    {
+      'nameKey': 'itemNameGlassBottle',
+      'type': 'glass',
+      'image': 'assets/images/products/glass_bottle.png'
+    },
+    {
+      'nameKey': 'itemNameNewspaper',
+      'type': 'paper',
+      'image': 'assets/images/products/newspaper.png'
+    },
+    {
+      'nameKey': 'itemNameCardboard',
+      'type': 'paper',
+      'image': 'assets/images/products/cardboard.png'
     },
     {
       'nameKey': 'itemNameBanana',
-      'type': 'fruit',
+      'type': 'organic',
       'image': 'assets/images/products/banana.png'
     },
     {
       'nameKey': 'itemNameApple',
-      'type': 'fruit',
+      'type': 'organic',
       'image': 'assets/images/products/apple.png'
     },
     {
-      'nameKey': 'itemNameTomato',
-      'type': 'vegetable',
-      'image': 'assets/images/products/tomato.png'
+      'nameKey': 'itemNamePlasticBag',
+      'type': 'plastic',
+      'image': 'assets/images/products/plastic_bag.png'
     },
     {
-      'nameKey': 'itemNameGrapes',
-      'type': 'berry',
-      'image': 'assets/images/products/grapes.png'
+      'nameKey': 'itemNameTinCan',
+      'type': 'metal',
+      'image': 'assets/images/products/tin_can.png'
     },
     {
-      'nameKey': 'itemNameCucumber',
-      'type': 'vegetable',
-      'image': 'assets/images/products/cucumber.png'
-    },
-    {
-      'nameKey': 'itemNameOrange',
-      'type': 'fruit',
-      'image': 'assets/images/products/orange.png'
-    },
-    {
-      'nameKey': 'itemNamePotato',
-      'type': 'vegetable',
-      'image': 'assets/images/products/potato.png'
-    },
-    {
-      'nameKey': 'itemNameStrawberry',
-      'type': 'berry',
-      'image': 'assets/images/products/strawberry.png'
-    },
-    {
-      'nameKey': 'itemNameRaspberry',
-      'type': 'berry',
-      'image': 'assets/images/products/raspberry.png'
+      'nameKey': 'itemNameJarGlass',
+      'type': 'glass',
+      'image': 'assets/images/products/jar_glass.png'
     },
   ];
 
   List<Map<String, dynamic>> items = [];
 
-  final GlobalKey fruitBasketKey = GlobalKey();
-  final GlobalKey vegetableBasketKey = GlobalKey();
-  final GlobalKey berryBasketKey = GlobalKey();
+  final GlobalKey plasticBinKey = GlobalKey();
+  final GlobalKey paperBinKey = GlobalKey();
+  final GlobalKey glassBinKey = GlobalKey();
+  final GlobalKey metalBinKey = GlobalKey();
+  final GlobalKey organicBinKey = GlobalKey();
 
   @override
   void initState() {
@@ -139,6 +136,12 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
       items = List.from(allItems)..shuffle();
       currentItem = {};
       isInitialSetup = true;
+    });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted && !gameOver) {
+        nextItem();
+      }
     });
   }
 
@@ -222,7 +225,7 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
     );
   }
 
-  void checkBasket(Offset dropPosition, String basketType) {
+  void checkBin(Offset dropPosition, String binType) {
     if (!mounted) return;
 
     if (gameOver || currentItem.isEmpty) return;
@@ -230,18 +233,26 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
     GlobalKey? targetKey;
     String? correctItemType;
 
-    switch (basketType) {
-      case 'fruit':
-        targetKey = fruitBasketKey;
-        correctItemType = 'fruit';
+    switch (binType) {
+      case 'plastic':
+        targetKey = plasticBinKey;
+        correctItemType = 'plastic';
         break;
-      case 'vegetable':
-        targetKey = vegetableBasketKey;
-        correctItemType = 'vegetable';
+      case 'paper':
+        targetKey = paperBinKey;
+        correctItemType = 'paper';
         break;
-      case 'berry':
-        targetKey = berryBasketKey;
-        correctItemType = 'berry';
+      case 'glass':
+        targetKey = glassBinKey;
+        correctItemType = 'glass';
+        break;
+      case 'metal':
+        targetKey = metalBinKey;
+        correctItemType = 'metal';
+        break;
+      case 'organic':
+        targetKey = organicBinKey;
+        correctItemType = 'organic';
         break;
       case 'wrong_area':
         break;
@@ -250,17 +261,17 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
     }
 
     bool isCorrect = false;
-    if (basketType != 'wrong_area' &&
+    if (binType != 'wrong_area' &&
         targetKey != null &&
         targetKey.currentContext != null) {
-      RenderBox basketBox =
+      RenderBox binBox =
           targetKey.currentContext!.findRenderObject() as RenderBox;
-      Offset basketPosition = basketBox.localToGlobal(Offset.zero);
-      Rect basketRect = basketPosition & basketBox.size;
+      Offset binPosition = binBox.localToGlobal(Offset.zero);
+      Rect binRect = binPosition & binBox.size;
       Offset itemCenter = dropPosition;
       isCorrect = currentItem['type'] == correctItemType &&
-          basketRect.contains(itemCenter);
-    } else if (basketType == 'wrong_area') {
+          binRect.contains(itemCenter);
+    } else if (binType == 'wrong_area') {
       isCorrect = false;
     }
 
@@ -311,26 +322,26 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
 
   String getLocalizedItemName(AppLocalizations l10n, String nameKey) {
     switch (nameKey) {
-      case 'itemNameCarrot':
-        return l10n.itemNameCarrot;
+      case 'itemNamePlasticBottle':
+        return l10n.itemNamePlasticBottle;
+      case 'itemNameGlassBottle':
+        return l10n.itemNameGlassBottle;
+      case 'itemNameNewspaper':
+        return l10n.itemNameNewspaper;
+      case 'itemNameCardboard':
+        return l10n.itemNameCardboard;
+      case 'itemNameAluminumCan':
+        return l10n.itemNameAluminumCan;
       case 'itemNameBanana':
         return l10n.itemNameBanana;
       case 'itemNameApple':
         return l10n.itemNameApple;
-      case 'itemNameTomato':
-        return l10n.itemNameTomato;
-      case 'itemNameGrapes':
-        return l10n.itemNameGrapes;
-      case 'itemNameCucumber':
-        return l10n.itemNameCucumber;
-      case 'itemNameOrange':
-        return l10n.itemNameOrange;
-      case 'itemNamePotato':
-        return l10n.itemNamePotato;
-      case 'itemNameStrawberry':
-        return l10n.itemNameStrawberry;
-      case 'itemNameRaspberry':
-        return l10n.itemNameRaspberry;
+      case 'itemNamePlasticBag':
+        return l10n.itemNamePlasticBag;
+      case 'itemNameTinCan':
+        return l10n.itemNameTinCan;
+      case 'itemNameJarGlass':
+        return l10n.itemNameJarGlass;
       default:
         return nameKey;
     }
@@ -343,8 +354,8 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    double basketWidth = (screenWidth - 60) / 3;
-    double basketTopPosition = screenHeight * 0.15;
+    double binWidth = screenWidth * 0.18;
+    double binTopPosition = screenHeight * 0.15;
     double itemStartYPosition = screenHeight * 0.7;
 
     if (itemPosition == Offset.zero && currentItem.isNotEmpty) {
@@ -392,29 +403,48 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
       ),
       body: Stack(
         children: [
-          _buildBasket(
-              key: fruitBasketKey,
-              type: 'fruit',
-              label: l10n.sortingBasketFruit,
-              left: 20,
-              top: basketTopPosition,
-              width: basketWidth),
-          _buildBasket(
-              key: vegetableBasketKey,
-              type: 'vegetable',
-              label: l10n.sortingBasketVegetable,
-              left: 20 + basketWidth + 10,
-              top: basketTopPosition,
-              width: basketWidth),
-          _buildBasket(
-              key: berryBasketKey,
-              type: 'berry',
-              label: l10n.sortingBasketBerry,
-              right: 20,
-              top: basketTopPosition,
-              width: basketWidth),
+          _buildTrashBin(
+              key: plasticBinKey,
+              type: 'plastic',
+              label: l10n.sortingBinPlastic,
+              left: 10,
+              top: binTopPosition,
+              width: binWidth,
+              color: Colors.deepOrangeAccent),
+          _buildTrashBin(
+              key: paperBinKey,
+              type: 'paper',
+              label: l10n.sortingBinPaper,
+              left: 10 + binWidth + 5,
+              top: binTopPosition,
+              width: binWidth,
+              color: Colors.blue),
+          _buildTrashBin(
+              key: glassBinKey,
+              type: 'glass',
+              label: l10n.sortingBinGlass,
+              left: 10 + (binWidth + 5) * 2,
+              top: binTopPosition,
+              width: binWidth,
+              color: Colors.green),
+          _buildTrashBin(
+              key: metalBinKey,
+              type: 'metal',
+              label: l10n.sortingBinMetal,
+              left: 10 + (binWidth + 5) * 3,
+              top: binTopPosition,
+              width: binWidth,
+              color: Colors.grey),
+          _buildTrashBin(
+              key: organicBinKey,
+              type: 'organic',
+              label: l10n.sortingBinOrganic,
+              left: 10 + (binWidth + 5) * 4,
+              top: binTopPosition,
+              width: binWidth,
+              color: Colors.brown),
           Positioned(
-            top: basketTopPosition + 150,
+            top: binTopPosition + 300,
             left: 0,
             right: 0,
             child: Center(
@@ -451,7 +481,7 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
                       padding: const EdgeInsets.symmetric(
                           horizontal: 16, vertical: 8),
                       decoration: BoxDecoration(
-                          color: Colors.redAccent.withValues(alpha: .8),
+                          color: Colors.redAccent.withOpacity(.8),
                           borderRadius: BorderRadius.circular(20)),
                       child: Text(l10n.sortingIncorrectBasket,
                           style: const TextStyle(
@@ -482,16 +512,18 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
                     final itemCenterOffset =
                         dropOffset + Offset(itemSize / 2, itemSize / 2);
 
-                    if (_isPointInBasket(itemCenterOffset, fruitBasketKey)) {
-                      checkBasket(itemCenterOffset, 'fruit');
-                    } else if (_isPointInBasket(
-                        itemCenterOffset, vegetableBasketKey)) {
-                      checkBasket(itemCenterOffset, 'vegetable');
-                    } else if (_isPointInBasket(
-                        itemCenterOffset, berryBasketKey)) {
-                      checkBasket(itemCenterOffset, 'berry');
+                    if (_isPointInBin(itemCenterOffset, plasticBinKey)) {
+                      checkBin(itemCenterOffset, 'plastic');
+                    } else if (_isPointInBin(itemCenterOffset, paperBinKey)) {
+                      checkBin(itemCenterOffset, 'paper');
+                    } else if (_isPointInBin(itemCenterOffset, glassBinKey)) {
+                      checkBin(itemCenterOffset, 'glass');
+                    } else if (_isPointInBin(itemCenterOffset, metalBinKey)) {
+                      checkBin(itemCenterOffset, 'metal');
+                    } else if (_isPointInBin(itemCenterOffset, organicBinKey)) {
+                      checkBin(itemCenterOffset, 'organic');
                     } else {
-                      checkBasket(itemCenterOffset, 'wrong_area');
+                      checkBin(itemCenterOffset, 'wrong_area');
                     }
                   }
                 },
@@ -507,14 +539,15 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
     );
   }
 
-  Widget _buildBasket(
+  Widget _buildTrashBin(
       {required GlobalKey key,
       required String type,
       required String label,
       double? left,
       double? right,
       required double top,
-      required double width}) {
+      required double width,
+      required Color color}) {
     final theme = Theme.of(context);
     return Positioned(
       key: key,
@@ -531,16 +564,43 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
               mainAxisSize: MainAxisSize.min,
               children: [
                 AnimatedContainer(
-                    duration: const Duration(milliseconds: 200),
-                    transform: Matrix4.identity()
-                      ..scale(isHovering ? 1.1 : 1.0),
-                    transformAlignment: Alignment.center,
-                    child: Image.asset('assets/images/basket.png',
-                        width: 100, height: 100)),
-                const SizedBox(height: 4),
+                  duration: const Duration(milliseconds: 200),
+                  transform: Matrix4.identity()..scale(isHovering ? 1.1 : 1.0),
+                  transformAlignment: Alignment.center,
+                  child: Container(
+                    width: 70,
+                    height: 90,
+                    decoration: BoxDecoration(
+                      color: color,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          blurRadius: 5,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Center(
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.white,
+                              size: 40,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
                 Text(label,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: theme.colorScheme.onSurface)),
               ],
@@ -551,10 +611,10 @@ class SortingGroceriesGameState extends State<SortingGroceriesGame>
     );
   }
 
-  bool _isPointInBasket(Offset globalPoint, GlobalKey basketKey) {
-    if (basketKey.currentContext == null) return false;
+  bool _isPointInBin(Offset globalPoint, GlobalKey binKey) {
+    if (binKey.currentContext == null) return false;
     final RenderBox? renderBox =
-        basketKey.currentContext!.findRenderObject() as RenderBox?;
+        binKey.currentContext!.findRenderObject() as RenderBox?;
     if (renderBox == null) return false;
     if (!renderBox.attached) return false;
     final Offset localPoint = renderBox.globalToLocal(globalPoint);

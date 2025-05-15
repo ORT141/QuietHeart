@@ -49,7 +49,7 @@
   "motionVideoNameHeart": "Heart",
   "motionVideoNameUnknown": "Unknown Video",
   "unknownError": "An unknown error occurred",
-  "gameSortingGroceriesTitle": "Sorting\nGroceries",
+  "gameSortingGarbageTitle": "Sorting\nGarbage",
   "gameMatchingSoundsTitle": "Match\nSounds",
   "gameColorPaletteTitle": "Color\nPalette",
   "breatheSelectVideoHint": "Select breathing video",
@@ -166,6 +166,11 @@
     }
   },
   "sortingIncorrectBasket": "Wrong basket!",
+  "sortingBinPlastic": "Plastic",
+  "sortingBinPaper": "Paper",
+  "sortingBinGlass": "Glass",
+  "sortingBinMetal": "Metal",
+  "sortingBinOrganic": "Organic",
   "itemNameCarrot": "Carrot",
   "itemNameBanana": "Banana",
   "itemNameApple": "Apple",
@@ -175,5 +180,13 @@
   "itemNameOrange": "Orange",
   "itemNamePotato": "Potato",
   "itemNameStrawberry": "Strawberry",
-  "itemNameRaspberry": "Raspberry"
+  "itemNameRaspberry": "Raspberry",
+  "itemNamePlasticBottle": "Plastic Bottle",
+  "itemNameGlassBottle": "Glass Bottle",
+  "itemNameNewspaper": "Newspaper",
+  "itemNameCardboard": "Cardboard",
+  "itemNameAluminumCan": "Aluminum Can",
+  "itemNamePlasticBag": "Plastic Bag",
+  "itemNameTinCan": "Tin Can",
+  "itemNameJarGlass": "Glass Jar"
 }

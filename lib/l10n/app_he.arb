@@ -49,7 +49,7 @@
   "motionVideoNameHeart": "לב קטן",
   "motionVideoNameUnknown": "סרטון לא ידוע",
   "unknownError": "אירעה שגיאה לא ידועה",
-  "gameSortingGroceriesTitle": "מיון\nמוצרים",
+  "gameSortingGarbageTitle": "מיון\nפסולת",
   "gameMatchingSoundsTitle": "מצאו זוג\nצלילים",
   "gameColorPaletteTitle": "פלטת\nצבעים",
   "breatheSelectVideoHint": "בחרו סרטון נשימה",
@@ -166,6 +166,11 @@
     }
   },
   "sortingIncorrectBasket": "סל לא נכון!",
+  "sortingBinPlastic": "פלסטיק",
+  "sortingBinPaper": "נייר",
+  "sortingBinGlass": "זכוכית",
+  "sortingBinMetal": "מתכת",
+  "sortingBinOrganic": "אורגני",
   "itemNameCarrot": "גזר",
   "itemNameBanana": "בננה",
   "itemNameApple": "תפוח",
@@ -175,5 +180,13 @@
   "itemNameOrange": "תפוז",
   "itemNamePotato": "תפוח אדמה",
   "itemNameStrawberry": "תות שדה",
-  "itemNameRaspberry": "פטל"
+  "itemNameRaspberry": "פטל",
+  "itemNamePlasticBottle": "בקבוק פלסטיק",
+  "itemNameGlassBottle": "בקבוק זכוכית",
+  "itemNameNewspaper": "עיתון",
+  "itemNameCardboard": "קרטון",
+  "itemNameAluminumCan": "פחית אלומיניום",
+  "itemNamePlasticBag": "שקית פלסטיק",
+  "itemNameTinCan": "קופסת שימורים",
+  "itemNameJarGlass": "צנצנת זכוכית"
 }
